@@ -1,9 +1,31 @@
-# 🐳 Guía de Despliegue Real (Fase 2 Defensiva)
+# 🐳 Guía de Despliegue Real (Fase de Trabajo)
 
 Esta guía contiene los pasos exactos que funcionaron en nuestra terminal para levantar el entorno sin errores.
-> 📂 **Nota sobre las rutas:** Todos los comandos de consola compartidos en esta guía deben ser ejecutados abriendo **PowerShell** directamente en la carpeta raíz de nuestro repositorio.
+
+> 📂 **Nota sobre las rutas:** Todos los comandos de consola compartidos en esta guía deben ser ejecutados abriendo **PowerShell** directamente en la carpeta raíz de nuestro repositorio, a menos que se indique otra ruta específica.
 
 ---
+
+## 📥 Paso 0: Clonar el Repositorio de DVJA
+
+Antes de levantar el contenedor, necesitamos descargar el código fuente de la aplicación **DVJA** dentro de nuestro directorio de trabajo para que Docker tenga los archivos necesarios para compilar.
+
+> 📍 **Ruta de ejecución:** Carpeta de la fase designada a cada integrante
+
+1. Desde tu terminal, desplázate a la carpeta de tu fase correspondiente:
+```bash
+cd "CARPETA_DE_TU_FASE"/dvja-patched/
+```
+### Ejecuta el comando para clonar el repositorio de la aplicación asegurando el nombre de la carpeta destino (dvja):
+
+```bash
+git clone https://github.com/appsecco/dvja dvja
+```
+### ⚠️ Regresa a la raíz del proyecto principal para poder gestionar los contenedores de forma global y que funcionen el resto de comandos:
+
+```bash
+cd ../../
+```
 
 ## ⚡ Paso 1: Liberar Puertos de Windows
 
