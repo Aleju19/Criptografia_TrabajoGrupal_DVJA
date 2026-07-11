@@ -1,63 +1,37 @@
-# Damn Vulnerable Java Application
+# Criptografía - Trabajo Grupal DVJA (Fase 2 Defensiva)
 
-## Quick Start
+Este repositorio contiene la versión parchada y segura de la aplicación DVJA, mitigando vulnerabilidades críticas mediante controles criptográficos y sanitización de código.
 
-Install Docker and Docker Compose.
+## 🔒 Mejoras de Seguridad Implementadas (Fase 2)
+Cifrado de Contraseñas: Migración de MD5 a hashes robustos usando BCrypt (Factor de costo: 12).
 
-```
-docker-compose up
-```
-Navigate to `http://localhost:8080`
+Protección de PII (Datos Sensibles): Cifrado simétrico reversible mediante AES-GCM para la columna de correos electrónicos (email).
 
-To update image
+Mitigación de SQL Injection: Parametrización estricta de consultas en los repositorios y servicios de autenticación.
 
-```
-docker-compose build
-```
+## 🚀 Instrucciones de Despliegue Local (¡Probado en Windows!)
 
-## Requirements
+Para evitar los errores comunes de colisión de puertos y asegurar que la base de datos se configure con el nuevo cifrado, sigan estos pasos estrictamente:
 
-* Java 1.7+
-* Maven 3.x
-* MySQL Server
+### 1. Limpiar el entorno y volúmenes previos (Obligatorio)
+Si ya tenían contenedores o bases de datos viejas corriendo, ejecuten esto para limpiar los volúmenes corruptos:
 
-## Configuration
-
-### Database
-
-Create MySQL database and credentials and configure the same in:
-
-```
-./src/main/webapp/WEB-INF/config.properties
+```bash
+docker-compose down -v
 ```
 
-### Schema Import
+### 2. Construir y Levantar el Contenedor Seguro
+Para compilar los nuevos cambios defensivos (BCrypt y AES) y levantar el entorno desde cero:
 
-Import the schema into MySQL database:
-
+```bash
+docker-compose up -d --build
 ```
-$ mysql -u USER -pPASSWORD dvja < ./db/schema.sql
+### 3. Acceso a la Aplicación
+Sitio Web: Naveguen a http://localhost:8080
+
+### Acceso Directo a la BD (MySQL en Docker):
+
+```bash
+docker exec -it dvja-mysql-1 mysql -u root -p'ec95c258266b8e985848cae688effa2b'
 ```
-
-## Build
-
-```
-$ mvn clean package
-```
-
-The deployable `war` file is generated in targets directory.
-
-## Run with Jetty
-
-```
-$ mvn jetty:run
-```
-
-This will start the `Jetty` server on port 8080.
-
-## Deploy in Tomcat Server
-
-* Build app
-* Copy targets/dvja.war to Tomcat webapps directory
-* To serve as root application, copy as `ROOT.war` to Tomcat webapps directory.
 
