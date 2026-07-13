@@ -67,3 +67,4 @@ modules.xml
 
 .vscode/
 dependency-check-report-*.html
+.env
