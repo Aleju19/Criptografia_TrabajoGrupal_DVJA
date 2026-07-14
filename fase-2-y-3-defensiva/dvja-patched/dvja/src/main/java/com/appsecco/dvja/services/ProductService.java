@@ -22,12 +22,15 @@ public class ProductService {
     public void setEntityManager(EntityManager em) {
         this.entityManager = em;
     }
-    public EntityManager getEntityManager() { return this.entityManager; }
+
+    public EntityManager getEntityManager() {
+        return this.entityManager;
+    }
 
     public void save(Product product) {
         logger.debug("Saving product with name: " + product.getName());
 
-        if(product.getId() != null)
+        if (product.getId() != null)
             entityManager.merge(product);
         else
             entityManager.persist(product);
@@ -44,10 +47,10 @@ public class ProductService {
         return resultList;
     }
 
+    //Correción a la inyección SQL
     public List<Product> findContainingName(String name) {
-        Query query = entityManager.createQuery("SELECT p FROM Product p WHERE p.name LIKE '%" + name + "%'");
-        List<Product> resultList = query.getResultList();
-
-        return resultList;
+        Query query = entityManager.createQuery("SELECT p FROM Product p WHERE p.name LIKE :name")
+                .setParameter("name", "%" + name + "%");
+        return query.getResultList();
     }
 }
