@@ -4,50 +4,81 @@
 
 Aplicación DVJA
 
+Administrador del Sistema
+
 ---
 
-## Actividad
+# Actividad
 
 Registro y autenticación de usuarios.
 
 ---
 
-## Datos tratados
+# Categoría de datos tratados
+
+Datos identificativos:
 
 - Nombre
 - Usuario
 - Correo electrónico
+
+Datos de autenticación:
+
 - Contraseña (BCrypt)
 
 ---
 
-## Finalidad
+# Finalidad
 
-Permitir la autenticación y administración de usuarios dentro del sistema.
+Permitir:
 
----
-
-## Base legal
-
-Consentimiento del titular de los datos.
-
----
-
-## Personas con acceso
-
-- Administrador
-- Propietario de la cuenta
+- Registro.
+- Autenticación.
+- Administración de cuentas.
+- Control de acceso.
 
 ---
 
-## Medidas de seguridad
+# Base legal
 
-- Hash BCrypt para contraseñas.
-- Cifrado AES para correo electrónico.
+Consentimiento otorgado por el titular.
+
+---
+
+# Personas con acceso
+
+- Administrador del sistema.
+- Propietario de la cuenta.
+
+---
+
+# Controles implementados
+
+- Hash BCrypt.
+- Cifrado AES.
 - Control de Acceso Basado en Roles (RBAC).
+- Validación de sesiones.
 
 ---
 
-## Conservación
+# Riesgos identificados
 
-Los datos permanecerán almacenados mientras exista una cuenta activa.
+- Acceso no autorizado.
+- Robo de credenciales.
+- Exposición de información personal.
+- Escalada de privilegios.
+
+---
+
+# Medidas de mitigación
+
+- Cifrado AES.
+- Hash BCrypt.
+- Restricciones de acceso.
+- Autenticación mediante sesión.
+
+---
+
+# Tiempo de conservación
+
+Los datos permanecerán almacenados mientras exista una cuenta activa en el sistema.
