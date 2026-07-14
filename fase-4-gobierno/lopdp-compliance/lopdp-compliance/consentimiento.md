@@ -2,13 +2,13 @@
 
 ## Objetivo
 
-Establecer el mecanismo mediante el cual los usuarios autorizan el tratamiento de sus datos personales antes de utilizar la aplicación DVJA.
+Garantizar que todo usuario otorgue su consentimiento antes del tratamiento de sus datos personales durante el proceso de registro.
 
 ---
 
-## Datos solicitados
+# Datos solicitados
 
-Durante el registro se recopilan los siguientes datos:
+Durante el registro se recopilan:
 
 - Nombre
 - Usuario
@@ -17,27 +17,46 @@ Durante el registro se recopilan los siguientes datos:
 
 ---
 
-## Consentimiento
+# Consentimiento informado
 
-Antes de finalizar el registro, el usuario debe aceptar el tratamiento de sus datos personales.
+Antes de finalizar el proceso de registro, el usuario deberá aceptar el tratamiento de sus datos personales.
 
-El consentimiento debe cumplir las siguientes características:
+El consentimiento debe ser:
 
 - Libre
 - Informado
 - Específico
 - Inequívoco
 
-Si el consentimiento no es otorgado, el sistema rechaza el registro del usuario.
+Si el usuario no acepta el tratamiento de sus datos personales, el sistema rechazará el registro.
 
 ---
 
-## Validación técnica
+# Implementación técnica
 
-La aplicación verifica el consentimiento tanto en el formulario de registro como en el servidor, evitando que un usuario pueda omitir esta validación mediante la manipulación del navegador.
+Se implementó una validación del consentimiento en dos niveles:
+
+## Interfaz de usuario
+
+El formulario de registro incorpora una casilla para aceptar la Política de Privacidad.
+
+## Servidor
+
+El controlador Register.java valida nuevamente el consentimiento antes de crear el usuario.
+
+Esto evita que el consentimiento pueda omitirse mediante modificaciones del navegador.
 
 ---
 
-## Base legal
+# Beneficios
+
+- Cumplimiento de la LOPDP.
+- Mayor transparencia.
+- Protección de los derechos del usuario.
+- Evidencia del consentimiento otorgado.
+
+---
+
+# Base legal
 
 Ley Orgánica de Protección de Datos Personales (LOPDP).
