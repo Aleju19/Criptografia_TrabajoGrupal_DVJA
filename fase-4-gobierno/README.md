@@ -2,56 +2,39 @@
 
 ## Descripción
 
-Esta fase incorpora controles de gobierno de seguridad y cumplimiento de la Ley Orgánica de Protección de Datos Personales (LOPDP) sobre la aplicación DVJA.
+En esta fase se incorporaron controles de gobierno de seguridad orientados al cumplimiento de la Ley Orgánica de Protección de Datos Personales (LOPDP), complementando las medidas técnicas implementadas previamente en la aplicación DVJA.
 
-Se implementaron controles técnicos y documentación orientada a fortalecer la gestión de la seguridad de la información.
+## Controles técnicos implementados
 
----
-
-## Controles implementados
-
-### Control de Acceso Basado en Roles (RBAC)
-
-Se incorporó una política de roles para restringir las funcionalidades de acuerdo con el principio de mínimo privilegio.
-
-Roles definidos:
-
-- Administrador
-- Cliente
-- Auditor
-
----
-
-### Protección de Datos Personales
-
-Se implementaron medidas para fortalecer el tratamiento seguro de la información personal:
-
-- Asignación de rol por defecto.
-- Validación del consentimiento informado.
-- Restricciones de acceso según privilegios.
-
----
+- Asignación de un rol por defecto para nuevos usuarios.
+- Implementación de Control de Acceso Basado en Roles (RBAC).
+- Restricción de funcionalidades según el perfil del usuario.
+- Validación del consentimiento para el tratamiento de datos personales.
+- Integración con los mecanismos de cifrado AES y hashing BCrypt implementados en fases anteriores.
 
 ## Documentación incluida
 
-- Política de Privacidad
-- Política de Roles y Permisos
-- Consentimiento para el Tratamiento de Datos
-- Registro de Actividades de Tratamiento
-- Matriz de Riesgos
+- Política de Privacidad.
+- Consentimiento para el Tratamiento de Datos.
+- Política de Roles y Permisos.
+- Registro de Actividades de Tratamiento.
+- Matriz de Riesgos.
+- Evidencias de funcionamiento.
 
----
+## Estructura
 
-## Evidencias
-
-Las capturas de funcionamiento se encuentran en la carpeta:
-
-evidencias/
-
----
+```text
+fase-4-gobierno/
+│
+├── dvja-patched/
+├── lopdp-compliance/
+├── matriz-riesgos/
+├── evidencias/
+└── README.md
+```
 
 ## Autor
 
-Fase desarrollada por:
+Trabajo correspondiente a la **Fase 4 – Gobierno de Seguridad e Insumos LOPDP** del proyecto grupal de Criptografía.
 
-Jostyn Palacios
+Autor: **Jostyn Palacios**
