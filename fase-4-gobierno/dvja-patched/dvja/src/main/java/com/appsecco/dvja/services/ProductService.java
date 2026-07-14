@@ -44,10 +44,10 @@ public class ProductService {
         return resultList;
     }
 
+    //Correción a la inyección SQL
     public List<Product> findContainingName(String name) {
-        Query query = entityManager.createQuery("SELECT p FROM Product p WHERE p.name LIKE '%" + name + "%'");
-        List<Product> resultList = query.getResultList();
-
-        return resultList;
+        Query query = entityManager.createQuery("SELECT p FROM Product p WHERE p.name LIKE :name")
+                .setParameter("name", "%" + name + "%");
+        return query.getResultList();
     }
 }
